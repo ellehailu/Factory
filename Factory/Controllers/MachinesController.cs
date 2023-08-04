@@ -15,9 +15,8 @@ namespace Factory.Controllers
         }
         public ActionResult Index()
         {
-            // List<Machine> model = _db.Machines.ToList();
-            // return View(model);
-            return View();
+            List<Machine> model = _db.Machines.ToList();
+            return View(model);
         }
 
         public ActionResult Create()
@@ -31,6 +30,12 @@ namespace Factory.Controllers
             _db.Machines.Add(machine);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+            return View(thisMachine);
         }
     }
 }

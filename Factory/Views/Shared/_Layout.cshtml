@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Factory</title>
+    <title>@ViewData["Title"]Factory</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link
@@ -45,8 +45,7 @@
                   class="nav-link text-dark"
                   asp-area=""
                   asp-controller="Home"
-                  asp-action=Index
-                  href="/"
+                  asp-action="Index" href=/
                   >Home</a
                 >
               </li>
@@ -55,8 +54,7 @@
                   class="nav-link text-dark"
                   asp-area=""
                   asp-controller="Machines"
-                  asp-action="Index"
-                  href="/Machines"
+                  asp-action="Index" href=/Machines
                   >Machines</a
                 >
               </li>
@@ -65,8 +63,7 @@
                   class="nav-link text-dark"
                   asp-area=""
                   asp-controller="Engineers"
-                  asp-action="Index"
-                  href="/Engineers"
+                  asp-action="Index" href=/Engineers
                   >Engineers</a
                 >
               </li>
@@ -81,8 +78,7 @@
 
     <footer class="border-top footer text-muted">
       <div class="container">
-        &copy; 2023 - Factory -
-        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2023 - Factory <a asp-area="" asp-controller="Home"></a>
       </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -91,4 +87,3 @@
   @await RenderSectionAsync("Scripts", required: false)
   </body>
 </html>
-

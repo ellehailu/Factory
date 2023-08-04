@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 
-namespace Factory.Controllers;
-
-public class HomeController : Controller
+namespace Factory.Controllers
 {
-    [HttpGet("/")]
-    public ActionResult Index()
+    public class HomeController : Controller
     {
-        return View();
+        [HttpGet("/")]
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }

@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EngineersController.Controllers
+
+namespace Factory.Controllers
 {
     public class EngineersController : Controller
     {

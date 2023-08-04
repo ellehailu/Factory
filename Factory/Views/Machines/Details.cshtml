@@ -4,4 +4,7 @@
 
 @model Factory.Models.Machine;
 
-@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)
+<h4>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h4>
+
+<p>@Html.ActionLink("Back to machine list", "Index")</p>
+<p>@Html.ActionLink("Update", "Edit")</p>

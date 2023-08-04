@@ -1,5 +1,8 @@
 using Factory.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace MachinesController.Controllers
 {
@@ -13,6 +16,10 @@ namespace MachinesController.Controllers
 
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Create(){
             return View();
         }
     }

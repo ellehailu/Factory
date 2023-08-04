@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Factory.Models
 {
     public class Engineer
@@ -5,5 +7,8 @@ namespace Factory.Models
         public int EngineerId { get; set; }
         public string Name { get; set; }
         public string Department { get; set; }
+
+        public Machine Machine { get; set; }
+        public List<EngineerMachine> JoinEntities { get; }
     }
 }

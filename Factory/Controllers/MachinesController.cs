@@ -38,6 +38,7 @@ namespace Factory.Controllers
             return View(thisMachine);
         }
 
+        //Currently not passing in an Id number
         public ActionResult Edit(int id)
         {
             Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);

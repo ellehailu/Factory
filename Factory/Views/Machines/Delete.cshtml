@@ -8,6 +8,7 @@
 
 @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
 @using (Html.BeginForm()){
+    @Html.HiddenFor(model => model.MachineId)
     <input type="submit" value="delete">
 }
 

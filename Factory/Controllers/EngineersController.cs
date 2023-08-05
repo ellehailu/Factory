@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using Microsoft.EntityFrameworkCore;
-
+using System.Linq;
 
 namespace Factory.Controllers
 {
@@ -16,7 +16,7 @@ namespace Factory.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(_db.Engineers.ToList());
         }
     }
 }

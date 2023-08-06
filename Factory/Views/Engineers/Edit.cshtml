@@ -2,15 +2,15 @@
     Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer;
+@model Factory.Models.Engineer
 
 @using (Html.BeginForm()){
     @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.LabelFor(model => model.Name)
+    @Html.DisplayNameFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
 
-    <input type="submit" value="Edit entry">
+    <input type="submit" value="Edit tag" />
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>

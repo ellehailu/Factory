@@ -7,5 +7,5 @@
 <h4>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h4>
 
 <p>@Html.ActionLink("Back to engineer list", "Index")</p>
-<p>@Html.ActionLink("Update", "Edit")</p>
-<p>@Html.ActionLink("Delete engineer", "Delete")</p>
+<p>@Html.ActionLink("Update", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>

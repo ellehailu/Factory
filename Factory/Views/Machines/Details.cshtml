@@ -7,5 +7,5 @@
 <h4>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h4>
 
 <p>@Html.ActionLink("Back to machine list", "Index")</p>
-<p>@Html.ActionLink("Update", "Edit")</p>
-<p>@Html.ActionLink("Delete machine", "Delete")</p>
+<p>@Html.ActionLink("Update", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })</p>

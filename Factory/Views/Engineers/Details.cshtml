@@ -2,10 +2,26 @@
     Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer;
+@using Factory.Models
+@model Factory.Models.Engineer
 
 <h4>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h4>
+
+@if(@Model.JoinEntities.Count == 0){
+    <p>This Engineer does not have any machines assigned</p>
+}
+
+else 
+{
+    <h3>Machines assigned to this engineer: </h3>
+    <ul>
+    @foreach (EngineerMachine join in Model.JoinEntities){
+        <li>@join.Machine.Name</li>
+    }
+    </ul>
+}
 
 <p>@Html.ActionLink("Back to engineer list", "Index")</p>
 <p>@Html.ActionLink("Update", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Assign a Machine", "AddMachine", new { id = Model.EngineerId})</p>

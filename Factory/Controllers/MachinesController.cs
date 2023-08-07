@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Factory.Controllers
 {
@@ -34,7 +36,9 @@ namespace Factory.Controllers
 
         public ActionResult Details(int id)
         {
-            Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+            Machine thisMachine = _db.Machines
+            .Include(machine => machine.JoinEntities)
+            .ThenInclude(join => join.Engineer).FirstOrDefault(machine => machine.MachineId == id);
             return View(thisMachine);
         }
 
@@ -68,6 +72,25 @@ namespace Factory.Controllers
             _db.Machines.Remove(thisMachine);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddEngineer(int id)
+        {
+            Machine thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            return View(thisMachine);
+        }
+
+        [HttpPost]
+        public ActionResult AddEngineer(Machine machine, int engineerId)
+        {
+            EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => join.MachineId == engineerId && join.MachineId == machine.MachineId);
+            if (joinEntity == null && engineerId != 0)
+            {
+                _db.EngineerMachines.Add(new EngineerMachine() { EngineerId = engineerId, MachineId = machine.MachineId });
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = machine.MachineId });
         }
     }
 }

@@ -6,15 +6,21 @@
 
 <h2>Add a machine</h2>
 
-<h4>Assign a machine to this engineer: @Html.DisplayFor(m => m.Name)</h4>
+<h4>Assign a machine to: @Html.DisplayFor(m => m.Name)</h4>
 
 @using (Html.BeginForm()){
     @Html.HiddenFor(m => m.EngineerId)
 
-    @Html.Label("Select machine")
-    @Html.DropDownList("MachineId")
-
-    <input type="submit" value="Save"/>
+    @if (ViewBag.MachineId != null && ((IEnumerable<SelectListItem>)ViewBag.MachineId).Any())
+    {
+        @Html.Label("Select machine")
+        @Html.DropDownList("MachineId", ViewBag.MachineId as IEnumerable<SelectListItem>)
+        <input type="submit" value="Save"/>
+    }
+    else
+    {
+        <p>There are no machines available.</p>
+    }
 
 }
 

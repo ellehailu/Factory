@@ -11,8 +11,6 @@ namespace Factory.Models
 
         [Required(ErrorMessage = "Department is required")]
         public string Level { get; set; }
-
-        public Machine Machine { get; set; }
         public List<EngineerMachine> JoinEntities { get; }
     }
 }

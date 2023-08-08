@@ -13,20 +13,18 @@
 
     @Html.Label("Select an engineer")
 
-    @if (ViewBag.EngineerIdId != null && ((IEnumerable<SelectListItem>)ViewBag.EngineerId).Any())
+    @if (ViewBag.EngineerId != null && ((IEnumerable<SelectListItem>)ViewBag.EngineerId).Any())
     {
-        @Html.Label("Select an engineer")
+        @Html.Label("Select engineer")
         @Html.DropDownList("EngineerId", ViewBag.EngineerId as IEnumerable<SelectListItem>)
         <input type="submit" value="Save"/>
     }
     else
     {
-        <p>There are no machines available.</p>
+        <p>There are no engineers available.</p>
     }
-    @Html.DropDownList("MachineId")
-
-    <input type="submit" value="Save"/>
-
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
+
+

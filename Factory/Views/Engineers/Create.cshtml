@@ -5,10 +5,18 @@
 @model Factory.Models.Engineer;
 
 @using (Html.BeginForm()){
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
-
-    <input type="submit" value="Add">
+    <label for="name">Full Name</label>
+    @Html.TextBoxFor(model => model.Name)<br>
+    <br>
+    <h6>Level of seniority</h6>
+    @Html.RadioButtonFor(model => model.Level, "Junior", new { id ="junior" })
+    
+    <label for="junior">Junior</label>
+    @Html.RadioButtonFor(model => model.Level, "Senior", new  { id = "senior" })
+    <label for="senior">Senior</label><br>
+    @Html.ValidationMessageFor(model => model.Name)
+    
+    <br><input type="submit" value="Add">
 }
 
-<p>@Html.ActionLink("Show all engineers", "Index")</p>
+<br><p>@Html.ActionLink("Show all engineers", "Index")</p>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
+#nullable enable
 namespace Factory.Controllers
 {
     public class MachinesController : Controller

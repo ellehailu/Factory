@@ -6,6 +6,7 @@
 @model Factory.Models.Machine
 
 <h4>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h4>
+<h5>Date installed: @Html.DisplayFor(m => m.InstallationDate)</h5>
 
 @if(@Model.JoinEntities.Count == 0){
     <p>This machine is not assigned to any engineer</p>

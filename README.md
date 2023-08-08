@@ -41,7 +41,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
 
 ## Known Bugs
 
-- _No bugs in the current version._
+- _Application does not display an error message when user enter null values_
 
 ## License
 

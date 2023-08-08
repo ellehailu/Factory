@@ -4,21 +4,23 @@
 
 @model Factory.Models.Engineer;
 
-@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" }))
-@Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger", @style = "font-weight: 600;" }))
 
 @using (Html.BeginForm()){
+
     <label for="name">Full Name</label>
     @Html.TextBoxFor(model => model.Name)<br>
-    
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })
+
     <h6>Level of seniority</h6>
     @Html.RadioButtonFor(model => model.Level, "Junior", new { id ="junior" })
-    
+
     <label for="junior">Junior</label>
     @Html.RadioButtonFor(model => model.Level, "Senior", new  { id = "senior" })
     <label for="senior">Senior</label><br>
-    
-    <br><input type="submit" value="Add">
+
+    @Html.ValidationMessageFor(m => m.Level, "", new { @class = "text-danger", @style = "font-weight: 600;" })
+    <br><input type="submit" value="Add"/> 
 }
+
 
 <br><p>@Html.ActionLink("Show all engineers", "Index")</p>

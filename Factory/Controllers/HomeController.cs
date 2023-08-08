@@ -8,21 +8,21 @@ namespace Factory.Controllers
 {
     public class HomeController : Controller
     {
-        // private readonly FactoryContext _db;
+        private readonly FactoryContext _db;
 
-        // public HomeController(FactoryContext db)
-        // {
-        //     _db = db;
-        // }
+        public HomeController(FactoryContext db)
+        {
+            _db = db;
+        }
 
         public ActionResult Index()
         {
-            // List<Engineer> engineers = _db.Engineers.ToList();
-            // List<Machine> machines = _db.Machines.ToList();
-
-            // ViewBag.Engineers = engineers;
-            // ViewBag.Machines = machines;
-            return View();
+            Engineer[] engineerArray = _db.Engineers.ToArray();
+            Machine[] machineArray = _db.Machines.ToArray();
+            Dictionary<string, object[]> model = new Dictionary<string, object[]>();
+            model.Add("engineers", engineerArray);
+            model.Add("machines", machineArray);
+            return View(model);
         }
     }
 }

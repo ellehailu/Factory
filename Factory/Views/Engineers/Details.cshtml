@@ -24,4 +24,10 @@ else
 <p>@Html.ActionLink("Back to engineer list", "Index")</p>
 <p>@Html.ActionLink("Update", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>
+
+@if (Model.JoinEntities.Count == 0){
+<p><strong>Note:</strong> There are currently no machines in need of repair</p>
+}
+else {
 <p>@Html.ActionLink("Assign a Machine", "AddMachine", new { id = Model.EngineerId})</p>
+}

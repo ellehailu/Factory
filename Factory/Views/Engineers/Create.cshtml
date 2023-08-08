@@ -7,6 +7,7 @@
 @using (Html.BeginForm()){
     <label for="name">Full Name</label>
     @Html.TextBoxFor(model => model.Name)<br>
+    @Html.ValidationMessageFor(model => model.Name)
     <br>
     <h6>Level of seniority</h6>
     @Html.RadioButtonFor(model => model.Level, "Junior", new { id ="junior" })
@@ -14,7 +15,7 @@
     <label for="junior">Junior</label>
     @Html.RadioButtonFor(model => model.Level, "Senior", new  { id = "senior" })
     <label for="senior">Senior</label><br>
-    @Html.ValidationMessageFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Level)
     
     <br><input type="submit" value="Add">
 }

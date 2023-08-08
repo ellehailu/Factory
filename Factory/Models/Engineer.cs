@@ -9,7 +9,7 @@ namespace Factory.Models
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
-        // [Required(ErrorMessage = "Department is required")]
+        [Required(ErrorMessage = "Department is required")]
         public string Level { get; set; }
 
         public Machine Machine { get; set; }
